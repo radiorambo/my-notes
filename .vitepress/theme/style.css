@@ -1,0 +1,118 @@
+/**
+ * Customize default theme styling by overriding CSS variables:
+ * https://github.com/vuejs/vitepress/blob/main/src/client/theme-default/styles/vars.css
+ */
+
+/**
+ * Colors
+ *
+ * Each colors have exact same color scale system with 3 levels of solid
+ * colors with different brightness, and 1 soft color.
+ *
+ * - `XXX-1`: The most solid color used mainly for colored text. It must
+ *   satisfy the contrast ratio against when used on top of `XXX-soft`.
+ *
+ * - `XXX-2`: The color used mainly for hover state of the button.
+ *
+ * - `XXX-3`: The color for solid background, such as bg color of the button.
+ *   It must satisfy the contrast ratio with pure white (#ffffff) text on
+ *   top of it.
+ *
+ * - `XXX-soft`: The color used for subtle background such as custom container
+ *   or badges. It must satisfy the contrast ratio when putting `XXX-1` colors
+ *   on top of it.
+ *
+ *   The soft color must be semi transparent alpha channel. This is crucial
+ *   because it allows adding multiple "soft" colors on top of each other
+ *   to create a accent, such as when having inline code block inside
+ *   custom containers.
+ *
+ * - `default`: The color used purely for subtle indication without any
+ *   special meanings attached to it such as bg color for menu hover state.
+ *
+ * - `brand`: Used for primary brand colors, such as link text, button with
+ *   brand theme, etc.
+ *
+ * - `tip`: Used to indicate useful information. The default theme uses the
+ *   brand color for this by default.
+ *
+ * - `warning`: Used to indicate warning to the users. Used in custom
+ *   container, badges, etc.
+ *
+ * - `danger`: Used to show error, or dangerous message to the users. Used
+ *   in custom container, badges, etc.
+ * -------------------------------------------------------------------------- */
+/* Import Inter font */
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&display=swap');
+
+:root {
+  /* Font */
+  --vp-font-family-base: 'Inter', sans-serif;
+
+  /* Brand Colors - Minimal Monochrome */
+  --vp-c-brand-1: #333333;
+  --vp-c-brand-2: #555555;
+  --vp-c-brand-3: #777777;
+  --vp-c-brand-soft: rgba(51, 51, 51, 0.14);
+
+  /* Backgrounds */
+  --vp-home-hero-name-color: transparent;
+  --vp-home-hero-name-background: -webkit-linear-gradient(120deg, #333 30%, #999);
+}
+
+.dark {
+  /* Dark Mode Brand Colors */
+  --vp-c-brand-1: #ffffff;
+  --vp-c-brand-2: #e5e5e5;
+  --vp-c-brand-3: #cccccc;
+  --vp-c-brand-soft: rgba(255, 255, 255, 0.14);
+
+  --vp-home-hero-name-background: -webkit-linear-gradient(120deg, #fff 30%, #999);
+}
+
+/**
+ * Make the search bar wider in the navbar.
+ * The default is often just an icon or small button.
+ */
+.VPNavBarSearch {
+  /* flex-grow: 1; */
+  /* max-width: 600px; */
+  /* Adjust as needed */
+  /* padding-left: 32px; */
+  /* Give it some space */
+}
+
+.VPNavBarSearch .DocSearch-Button {
+  width: 100%;
+  min-width: 300px;
+  /* Force it to be wider */
+  display: flex;
+  align-items: center;
+  padding: 0 12px;
+}
+
+.VPNavBarSearch .DocSearch-Button-Placeholder {
+  display: block;
+  /* Ensure placeholder text is visible if hidden by default */
+}
+
+/* Custom minimal tweaks */
+.VPNavBar {
+  border-bottom: 1px solid var(--vp-c-divider);
+}
+
+.VPButton.brand {
+  background-color: var(--vp-c-brand-1);
+  border-color: var(--vp-c-brand-1);
+  color: var(--vp-c-bg);
+}
+
+.VPButton.brand:hover {
+  background-color: var(--vp-c-brand-2);
+  border-color: var(--vp-c-brand-2);
+}
+
+/* Ensure the local search box modal is also wide enough if needed */
+.VPLocalSearchBox {
+  /* Default is usually fine, but we can tweak if needed */
+}
